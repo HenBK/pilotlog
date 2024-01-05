@@ -1,3 +1,8 @@
-from django.test import TestCase
+import pytest
 
-# Create your tests here.
+
+@pytest.mark.django_db
+class TestSample:
+
+    def test_sample(self):
+        assert True
