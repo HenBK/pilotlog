@@ -6,7 +6,10 @@ from django.contrib.auth import get_user_model
 class TestUserModel:
 
     def test_create_user_with_email(self):
-        """Test creating a new user with an email is successful"""
+        """
+        Test creating a new user with an email and no username is successful
+        """
+
         email = 'test@example.com'
         password = 'testpass123'
         user = get_user_model().objects.create_user(
