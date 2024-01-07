@@ -6,11 +6,6 @@ from rest_framework.test import APIClient
 
 
 @pytest.fixture
-def client():
-    return APIClient()
-
-
-@pytest.fixture
 def normal_user():
     return mixer.blend(
         get_user_model(),
@@ -28,3 +23,15 @@ def super_user():
         is_staff=True,
         is_active=True,
     )
+
+
+@pytest.fixture
+def client():
+    return APIClient()
+
+
+@pytest.fixture
+def authenticated_client(normal_user):
+    client = APIClient()
+    client.force_authenticate(normal_user)
+    return client
