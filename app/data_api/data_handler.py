@@ -38,6 +38,9 @@ class DataHandler:
 
     def _import_data(self, data_source):
         """Import data from data source persisting it in the database"""
+        if self.import_format not in self.ALLOWED_IMPORT_FILE_FORMATS:
+            raise ValueError("Invalid import file format has been set.")
+
         data_mapper = DataMapper()
 
         data_importer = DataImporter(
