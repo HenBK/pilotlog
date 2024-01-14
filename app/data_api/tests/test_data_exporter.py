@@ -1,5 +1,7 @@
 import io
 
+import pytest
+
 from data_api.data_exporter import (
     DataExporter,
 )
@@ -53,7 +55,6 @@ class TestDataExporter:
             }
         ]
 
-        try:
+        with pytest.raises(ValueError) as e:
             data_exporter.export_data(data_source)
-        except ValueError as e:
             assert str(e) == 'Invalid export file format has been set.'
