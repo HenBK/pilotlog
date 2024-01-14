@@ -30,7 +30,7 @@ class TestUtils:
         assert get_nested_value(no_nesting_key_string, no_nesting_dict) == 'test_value_2'  # noqa
 
     def test_seconds_to_time(self):
-        assert seconds_to_time(0) == time(hour=0, minute=0, second=0) 
+        assert seconds_to_time(0) == time(hour=0, minute=0, second=0)
         assert seconds_to_time(60) == time(hour=0, minute=1, second=0)
         assert seconds_to_time(3600) == time(hour=1, minute=0, second=0)
         assert seconds_to_time(3661) == time(hour=1, minute=1, second=1)
